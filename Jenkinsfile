@@ -17,7 +17,10 @@ pipeline {
         stage('Terraform Init and Apply') {
             steps {
                 script {
+                    echo '--- Initializing Terraform ---'
                     sh 'terraform init'
+
+                    echo '--- Applying Terraform Changes ---'
                     sh 'terraform apply -auto-approve'
                 }
             }
@@ -26,8 +29,10 @@ pipeline {
         stage('Post Deployment') {
             steps {
                 script {
+                    echo '--- Performing Post-Deployment Steps ---'
                     // Add any post-deployment steps here
                 }
             }
         }
     }
+}
