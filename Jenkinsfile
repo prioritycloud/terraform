@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     echo '--- Checking out repository ---'
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/prioritycloud/terraform.git']]])
+                    checkout scm
                 }
             }
         }
@@ -38,4 +38,3 @@ pipeline {
             }
         }
     }
-}
